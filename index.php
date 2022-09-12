@@ -8,175 +8,200 @@
     ***           *   *            *   *             ***
      *                                                *
 -->
-
 <!DOCTYPE html>
 <html>
 <body>
- 
-<?php  
-
+<?php
 //q1
-$year = 2013;  
- 
-if((0 == $year % 4) & (0 != $year % 100) | (0 == $year % 400))
-{
-echo "$year is a Leap Year.";    
-}
- 
-else  
-{  
-echo "$year This year is not a leap yea";    
-}
+$co = array('red', 'green', 'white');
+echo "The memory of that scene for me is like a frame of film forever frozen at that
+moment: the $co[0]  carpet, the $co[1] lawn, the $co[2]house, the leaden sky. The new president and his first lady. - Richard M. Nixon";
 
 //q2
-$temp = 27;  
+$co = array('white', 'green', 'red');
 
-if ($temp > "20") {
-    echo "It is summertime!";
-  }
-//q3
-function test($f, $sc) 
+sort($co);
+echo "<ul>";
+foreach ($co as $x)
 {
-    return $f == $sc ? ($f + $sc)*3 :  false;
+echo "<li>$x</li>";
 }
-echo test(2, 2);
+echo "</ul>";
+
+//q3
+$cities =array( "Italy"=>"Rome", "Luxembourg"=>"Luxembourg", "Belgium"=>
+"Brussels", "Denmark"=>"Copenhagen", "Finland"=>"Helsinki", "France" =>
+"Paris", "Slovakia"=>"Bratislava", "Slovenia"=>"Ljubljana", "Germany" => "Berlin",
+"Greece" => "Athens", "Ireland"=>"Dublin", "Netherlands"=>"Amsterdam",
+"Portugal"=>"Lisbon", "Spain"=>"Madrid" );
+asort($cities) ;
+foreach($cities as $country => $capital)
+{
+echo "The capital of $country is $capital". ;
+echo "<br>";
+}
 
 //q4
-function test($f, $sc) 
-{
-    return $f + $sc ==30 ? ($f + $sc) :  false;
-}
-echo test(10, 10);
+ $color = array (4 => 'white', 6 => 'green', 11=> 'red');
+ echo reset($color);
 
-//q5
-function test($num) 
-{
-   return $num % 3 == 0 || $num % 7 == 0;
-}
+ //q5
+ $num = array( '1','2','3','4','5' );
 
-var_dump(test(20));
+$add = '$';
+array_splice( $num, 3, 0, $add ); 
+foreach ($num as $x) 
+{echo "$x ";}
 
 //q6
-function test($num) 
-{
-   return $num >= 20 && $num <=50;
-}
+$fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c
+" => "apple");
 
-var_dump(test(50));
+asort($fruits);
+foreach ($fruits as $key => $val) {
+    echo "$key = $val";
+    echo "<br>";}
 
 //q7
-$num1=1;
-$num2=5;
-$num3=9;
-if($num1>$num2 && $num1>$num3){
-  echo $num1;
+$arraytemp = "78, 60, 62, 68, 71, 68, 73, 85, 66, 64, 76, 63, 75, 76, 73, 68, 62, 73, 72,65, 74, 62, 62, 65, 64, 68, 73, 75, 79, 73";
+$arraytemp1 = explode(',', $arraytemp);
+$ttemp = 0;
+$arraytemp1_length = count($arraytemp1);
+foreach($arraytemp1 as $temp)
+{
+ $ttemp += $temp;
 }
-else{
-  if($num2>$num1 && $num2>$num3){
-    echo $num2;
-  }
-  else
-    echo $num3;
+ $avgtemp = $ttemp/$$arraytemp1_length;
+ echo "Average Temperature is : ".$avgtemp."
+"; 
+sort($arraytemp1);
+echo " List of five lowest temperatures :";
+for ($i=0; $i< 7; $i++)
+{ 
+echo $arraytemp1[$i].", ";
+
+}
+echo "List of five highest temperatures :";
+for ($i=($arraytemp1_length-7); $i< ($arraytemp1_length); $i++)
+{
+echo $arraytemp1[$i].", ";
 }
 
 //q8
-function calculateBill(units)
-{
-     
-  
-    if (units <= 100)
-    {
-        return units * 10;
-    }
-    else if (units <= 200)
-    {
-        return (100 * 10)
-            + (units - 100)
-                  * 15;
-    }
-    else if (units <= 300)
-    {
-        return (100 * 10)
-            + (100 * 15)
-            + (units - 200)
-                  * 20;
-    }
-    else if (units > 300)
-    {
-        return (100 * 10)
-            + (100 * 15)
-            + (100 * 20)
-            + (units - 300)
-                  * 25;
-    }
-    return 0;
-}
-     
+$array1 = array("color" => "red", 2, 4);
+$array2 = array("a", "b", "color" => "green", "shape" => "trapezoid", 4);
+$result = array_merge($array1, $array2);
+print_r($result);
 
 
-//q9 
-function test($n1, $n2, $result) {
-        switch($result) {            
-            case '+':
-                $result = $n1 + $n2;
-                break;
-            case '-':
-                $result = $n1 - $n2;
-                break;
-            case '*':
-                $result = $n1 * $n2;
-                break;
-            case '/':
-                $result = $n1 / $n2;
-                break;       
-        }
-        return $result;
-    }
+//q11
+echo implode(",",range(200,250,4))."\n";
 
-//q10
-$age = 15;  
-
-if ($age > "18") {
-    echo "is no eligible to vote";
-  }
-
-  //q11
-
-  function test($x) {
-    if ($x > 0)
-      echo "Positive ";
-    if ($x == 0)
-      echo "Zero";
-    if ($x < 0)
-     echo "Negative ";
-
-  }
-  
-  test(-60);
 
 //q12
+$words = array("abcd","abc","de","hjjj","g","wer");
+$array = array_map('strlen', $words);
+echo "The shortest array length is " . min($array) .
+". The longest array length is " . max($array).'.';
 
-$array = array(60,86,95,63,55,74,79,62,50);
-$avg = array_sum($array) / count($array);
-function test($x) {
-  if ($x < 60)
-   echo "F ";
-   else if ($x < 70)
-   echo "D ";
-  else if ($x < 80)
-   echo "C ";
-  else if ($x < 90)
-   echo "B ";
-  else if($x < 100)
-   echo "A ";
 
+//q13
+$n=range(11,20);
+shuffle($n);
+for ($x=0; $x< 10; $x++)
+{
+echo $n[$x]."\n";
 }
 
-test($avg);
+//q14
+function nzero(Array $values) 
+{
+return min(array_diff(array_map('intval', $values), array(0)));
+}
+print_r(m(array(2,0,10,12,6))."\n");
 
+//q15
+for($x=1; $x<=10; $x++)
+{
+ if($x< 10)
+ {
+ echo "$x-";
+ }
+ else
+  {
+ echo "$x"."\n";
+  }
+}
 
+//q16
 
-?> 
- 
+$total =0;
+for($x=1; $x<=30; $x++)
+{
+$total +=$x;
+}
+echo $total;
+
+//q19
+//q20
+$n = 5;
+$x = 1;
+for($i=1;$i<=$n-1;$i++)
+{
+ $x*=($i+1); 
+}
+echo "$x";
+ //q21
+ x,y=0,1
+
+while y<75:
+    print(y)
+    x,y = y,x+y
+
+    //q22
+    
+$text="Orange Coding Academy";
+$search_char="c";
+$count="0";
+for($x="0"; $x< strlen($text); $x++)
+  { 
+    if(substr($text,$x,1)==$search_char)
+    {
+    $count=$count+1;
+	 }
+  }
+echo $count."\n";
+
+//q23
+for ($i = 1; $i <= 100; $i++) {
+  if ($i % 15 == 0) {
+      echo 'FizzBuzz<br>';
+  } elseif ($i % 3 == 0) {
+      echo 'Fizz<br>';
+  } elseif ($i % 5 == 0) {
+      echo 'Buzz<br>';
+  } else {
+      echo $i . '<br>';
+  }
+}
+
+//q24
+
+<table border="1" cellpadding="3" cellspacing="0">
+<?php
+for($i=1;$i<=6;$i++)
+{
+echo "<tr>";
+for ($j=1;$j<=5;$j++)
+  {
+  echo "<td>$i * $j = ".$i*$j."</td>";
+  }
+  echo "</tr>";
+  }
+?>
+</table>
+
+?>
+
 </body>
 </html>
